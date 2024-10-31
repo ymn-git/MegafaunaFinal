@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://nak1txuwe4h0"]
+
+[ext_resource type="Script" path="res://scripts/transitionlevel_3.gd" id="1_4sn7m"]
+[ext_resource type="Texture2D" uid="uid://dv12ug0aw71g7" path="res://backgrounds/IMAG1/backgrounds/information/3.jpg" id="1_dq8ml"]
+[ext_resource type="FontFile" uid="uid://ct8mwybs8mijn" path="res://backgrounds/IMAG1/fonts/Super Pixel Personal Use.ttf" id="2_jyd5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlos5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 5
+anti_aliasing = false
+anti_aliasing_size = 1.22
+
+[node name="transition_level3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4sn7m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dq8ml")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -163.0
+offset_right = 254.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="finish_Button" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jyd5l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_xlos5")
+text = "FINALIZAR"
+
+[connection signal="pressed" from="VBoxContainer/finish_Button" to="." method="_on_finish_button_pressed"]
