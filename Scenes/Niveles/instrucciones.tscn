@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://nfnkk6fdu3jh"]
+
+[ext_resource type="Texture2D" uid="uid://dtt1qpx66w7a" path="res://IMAG/Background/Fondo 3.jpg" id="1_uwg7t"]
+[ext_resource type="FontFile" uid="uid://fow4olv7qshn" path="res://IMAG/Fonts/PixelOperator8.ttf" id="2_g26r8"]
+[ext_resource type="FontFile" uid="uid://djp4axe1q2qxo" path="res://IMAG/Fonts/Super Pixel Personal Use.ttf" id="3_nybll"]
+[ext_resource type="Script" path="res://scripts/Instrucciones.gd" id="4_xvdat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18tt0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_halxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjtaq"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[node name="Instrucciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uwg7t")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.5
+offset_top = -321.0
+offset_right = 215.5
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Subtitulo_Aventura" type="Label" parent="VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_g26r8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_18tt0")
+text = "AVENTURA EXTINTA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Titulo_Megafauna" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nybll")
+theme_override_font_sizes/font_size = 57
+theme_override_styles/normal = SubResource("StyleBoxEmpty_halxy")
+text = "MEGAFAUNA"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -498.0
+offset_top = -194.0
+offset_right = 754.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.998)
+localize_numeral_system = false
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Instrucciones" type="Label" parent="VBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_g26r8")
+theme_override_font_sizes/font_size = 26
+text = "Para mover al jugador utiliza las teclas arriba, abajo, 
+izquierda y derecha.
+
+Para saltar presione la barra espaciadora.
+
+Intente encontrar los 3 fósiles escondidos en el mapa antes
+de avanzar de nivel.
+
+En caso de caer al vacío o al agua deberá comenzar de nuevo, 
+tenés tres intentos en total. ¡Suerte!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("4_xvdat")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Salir" type="Button" parent="VBoxContainer3/VBoxContainer"]
+light_mask = 3
+visibility_layer = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_g26r8")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_qjtaq")
+text = "ATRÁS"
+
+[connection signal="pressed" from="VBoxContainer3/VBoxContainer/Salir" to="VBoxContainer3/Instrucciones" method="_on_salir_pressed"]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://5cunoeas030j"]
+
+[ext_resource type="Script" path="res://scripts/Megafauna.gd" id="1_b52rw"]
+[ext_resource type="Texture2D" uid="uid://dtt1qpx66w7a" path="res://IMAG/Background/Fondo 3.jpg" id="2_d4frx"]
+[ext_resource type="FontFile" uid="uid://fow4olv7qshn" path="res://IMAG/Fonts/PixelOperator8.ttf" id="3_d7ht2"]
+[ext_resource type="FontFile" uid="uid://djp4axe1q2qxo" path="res://IMAG/Fonts/Super Pixel Personal Use.ttf" id="4_j7t5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsbgd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n74f2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trwm6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[node name="Megafauna" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b52rw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d4frx")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -565.0
+offset_top = -254.0
+offset_right = 565.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="Subtitulo_Aventura" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d7ht2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsbgd")
+text = "AVENTURA EXTINTA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Titulo_Megafauna" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_j7t5y")
+theme_override_font_sizes/font_size = 57
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n74f2")
+text = "MEGAFAUNA"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -486.0
+offset_top = -200.0
+offset_right = 746.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.999)
+localize_numeral_system = false
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Información" type="Label" parent="VBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_d7ht2")
+theme_override_font_sizes/font_size = 22
+text = "Se refiere a los grandes mamíferos del Pleistoceno, como gliptodontes
+y perezosos gigantes, que habitaron América del Sur. 
+Hace 3 millones de años, se conectaron con América del Norte, 
+permitiendo la migración de grandes especies.
+
+En la costa argentina, los acantilados entre Miramar y Mar del Plata 
+son un tesoro geológico, llenos de fósiles que cuentan
+la historia de esta fascinante megafauna."
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Salir" type="Button" parent="VBoxContainer3/VBoxContainer"]
+light_mask = 3
+visibility_layer = 3
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d7ht2")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_trwm6")
+text = "ATRÁS"
+
+[connection signal="pressed" from="VBoxContainer3/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

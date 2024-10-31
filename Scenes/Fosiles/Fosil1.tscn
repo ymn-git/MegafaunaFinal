@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv1hcguh1r22"]
+
+[ext_resource type="Texture2D" uid="uid://pkhy0br7wags" path="res://Huesos/Hueso 1.png" id="1_4vxkk"]
+[ext_resource type="Script" path="res://scripts/Fosil.gd" id="1_ekqgk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wnb6f"]
+radius = 5.0
+height = 14.0
+
+[node name="Fosil1" type="Area2D"]
+script = ExtResource("1_ekqgk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_4vxkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_wnb6f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

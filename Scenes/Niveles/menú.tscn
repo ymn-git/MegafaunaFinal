@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf54ehs8drubd"]
+
+[ext_resource type="Script" path="res://scripts/menú.gd" id="1_mjklp"]
+[ext_resource type="Texture2D" uid="uid://dye7vjjfu2qhf" path="res://IMAG/Background/image (1).jpg" id="2_tn4j8"]
+[ext_resource type="FontFile" uid="uid://bo1bnyn68uegd" path="res://Scenes/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_rus80"]
+[ext_resource type="FontFile" uid="uid://cv5hlxcelgkow" path="res://Scenes/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_rc65y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd61j"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nn230"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trwm6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsbgd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n74f2"]
+
+[node name="Menú" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mjklp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tn4j8")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -295.0
+offset_top = -301.0
+offset_right = 295.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Inicio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_rus80")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_gd61j")
+text = "INICIO"
+
+[node name="Megafauna" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rus80")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_nn230")
+text = "¿Qué es Megafauna?"
+
+[node name="Instrucciones" type="Button" parent="VBoxContainer"]
+light_mask = 3
+visibility_layer = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_rus80")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_gd61j")
+text = "INSTRUCCIONES"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rus80")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_trwm6")
+text = "SALIR"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -74.0
+offset_right = 242.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="Subtitulo_Aventura" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rus80")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsbgd")
+text = "AVENTURA EXTINTA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Titulo_Megafauna" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rc65y")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n74f2")
+text = "MEGAFAUNA"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/Megafauna" to="." method="_on_megafauna_pressed"]
+[connection signal="pressed" from="VBoxContainer/Instrucciones" to="." method="_on_instrucciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

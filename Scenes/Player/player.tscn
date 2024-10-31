@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm7om7o2vw4vo"]
+
+[ext_resource type="Texture2D" uid="uid://5fsm4cyb2v4s" path="res://Scenes/Player/Designer__7_-removebg-preview.png" id="1_op8kx"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_oymfo"]
+[ext_resource type="Texture2D" uid="uid://d370ako6bfqyl" path="res://Scenes/Player/Designer__8_-removebg-preview.png" id="2_cvr1h"]
+[ext_resource type="Texture2D" uid="uid://bs4nnqex6mrjn" path="res://Scenes/Player/Designer__9_-removebg-preview.png" id="3_c13fs"]
+[ext_resource type="FontFile" uid="uid://cv5hlxcelgkow" path="res://Scenes/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="5_dbihg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wgv8"]
+size = Vector2(70.0001, 260)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42ept"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_op8kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cvr1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c13fs")
+}],
+"loop": true,
+"name": &"Corriendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c13fs")
+}],
+"loop": true,
+"name": &"Quieto",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+script = ExtResource("1_oymfo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 9.99998)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_5wgv8")
+debug_color = Color(0.998731, 0, 0.134174, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_42ept")
+animation = &"Corriendo"
+autoplay = "Quieto"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fósiles" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 22.0
+offset_right = 370.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("5_dbihg")
+theme_override_font_sizes/font_size = 20
+text = "Fósiles recolectados: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vidas" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 148.0
+offset_top = 43.0
+offset_right = 496.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("5_dbihg")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mensaje" type="Label" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 366.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("5_dbihg")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MensajeTimer" type="Timer" parent="CanvasLayer/Mensaje"]
+wait_time = 3.0
+
+[connection signal="timeout" from="CanvasLayer/Mensaje/MensajeTimer" to="." method="_on_mensaje_timer_timeout"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cac0wsmrb3nwe"]
+
+[ext_resource type="Script" path="res://scripts/tiburon.gd" id="1_c8q0d"]
+[ext_resource type="Texture2D" uid="uid://bc6jiailvx8k6" path="res://Scenes/Enemies/shark/shark-removebg-preview (1).png" id="1_s6fl2"]
+[ext_resource type="Texture2D" uid="uid://b4opd8islnm3n" path="res://Scenes/Enemies/shark/shark-removebg-preview (2).png" id="2_afkcj"]
+[ext_resource type="Texture2D" uid="uid://drcdosnsajk4j" path="res://Scenes/Enemies/shark/shark-removebg-preview (3).png" id="3_dotiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro6jh"]
+size = Vector2(89, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4fqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s6fl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_afkcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dotiw")
+}],
+"loop": true,
+"name": &"izq",
+"speed": 5.0
+}]
+
+[node name="Shark" type="AnimatableBody2D"]
+texture_filter = 1
+rotation = 0.0349066
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_c8q0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_ro6jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f4fqh")
+animation = &"izq"
+autoplay = "izq"
+frame_progress = 0.00656864
+flip_h = true
