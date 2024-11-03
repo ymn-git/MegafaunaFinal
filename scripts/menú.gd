@@ -1,8 +1,16 @@
 extends Control
 
+func _ready():
+	_menumusic()
+	
+func _menumusic():
+	$MusicMenu.play()
 
 func _on_inicio_pressed():
+	$MusicMenu.stop()
 	get_tree().change_scene_to_file("res://Scenes/Niveles/miramar.tscn")
+	
+	
 
 func _on_megafauna_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Niveles/Megafauna.tscn")

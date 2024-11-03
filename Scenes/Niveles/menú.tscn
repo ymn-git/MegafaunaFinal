@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf54ehs8drubd"]
+[gd_scene load_steps=12 format=3 uid="uid://bf54ehs8drubd"]
 
 [ext_resource type="Script" path="res://scripts/menú.gd" id="1_mjklp"]
 [ext_resource type="Texture2D" uid="uid://dye7vjjfu2qhf" path="res://IMAG/Background/image (1).jpg" id="2_tn4j8"]
 [ext_resource type="FontFile" uid="uid://bo1bnyn68uegd" path="res://Scenes/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_rus80"]
 [ext_resource type="FontFile" uid="uid://cv5hlxcelgkow" path="res://Scenes/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_rc65y"]
+[ext_resource type="AudioStream" uid="uid://bit41jqn180vy" path="res://Scenes/Sounds/info_screen.mp3" id="5_kydb2"]
+[ext_resource type="AudioStream" uid="uid://cs1ppjujrgnlj" path="res://Scenes/Sounds/game_music_loop.mp3" id="6_073d4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd61j"]
 bg_color = Color(1, 1, 1, 1)
@@ -143,6 +145,13 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n74f2")
 text = "MEGAFAUNA"
 horizontal_alignment = 1
+
+[node name="InGameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_073d4")
+
+[node name="MusicMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kydb2")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Megafauna" to="." method="_on_megafauna_pressed"]

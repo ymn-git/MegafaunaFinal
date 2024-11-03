@@ -6,7 +6,6 @@ res://Scenes/Niveles/miramar3.tscn
 res://Scenes/Niveles/victory_screen.tscn
 res://Scenes/Niveles/transition_level1.tscn
 res://Scenes/Niveles/transition_level3.tscn
-res://scripts/game_controller.gd
-res://scripts/player.gd
 res://Scenes/Player/player.tscn
-res://scripts/killzone.gd
+res://Scenes/Niveles/miramar.tscn
+res://Scenes/Niveles/miramar2.tscn

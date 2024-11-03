@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhoucsgs8cmya"]
+[gd_scene load_steps=31 format=3 uid="uid://bhoucsgs8cmya"]
 
 [ext_resource type="Script" path="res://scripts/miramar2.gd" id="1_6cdmp"]
 [ext_resource type="Texture2D" uid="uid://cysqyualyagff" path="res://Scenes/brackeys_platformer_assets/sprites/world_tileset.png" id="2_3misy"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bv1hcguh1r22" path="res://Scenes/Fosiles/Fosil1.tscn" id="13_nam4o"]
 [ext_resource type="PackedScene" uid="uid://bwljss3ifdvl6" path="res://Scenes/Fosiles/Fosil2.tscn" id="14_uq3mw"]
 [ext_resource type="PackedScene" uid="uid://c3lkwu7tphgq0" path="res://Scenes/Fosiles/Fosil3.tscn" id="15_knmmc"]
+[ext_resource type="AudioStream" uid="uid://cs1ppjujrgnlj" path="res://Scenes/Sounds/game_music_loop.mp3" id="16_cyxrn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm6f0"]
 texture = ExtResource("2_3misy")
@@ -24491,5 +24492,9 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Fosil3" parent="." instance=ExtResource("15_knmmc")]
 position = Vector2(2071, 615)
+
+[node name="IngameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_cyxrn")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

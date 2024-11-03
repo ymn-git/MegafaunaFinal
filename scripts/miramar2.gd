@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	$IngameMusic.play()
+
 func _on_portal_body_entered(body):
 	if body is Player:
 		if body.bonesTaken == 3:
